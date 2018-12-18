@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Challenge</title>
+</head>
+<body>
+  <h1>Star Wars Character Age Chart</h1>
+  <h2>Look at the Console!</h2>
+  <img src="starwars.jpg" />
+  <script>
+
+    const characters = [
+      { first: 'Luke', last: 'Skywalker', age: 84, passed: 84 },
+      { first: 'Anakin', last: 'Skywalker', age: 'dead', passed: 46 },
+      { first: 'Han', last: 'Solo', age: 63, passed: 'alive' },
+      { first: 'Kylo', last: 'Ren', age: 29, passed: 'alive' },
+      { first: 'Leia', last: 'Organa', age: 53, passed: 'alive' },
+      { first: 'Obi-One', last: 'Kenobi', age: 'dead', passed: 57 },
+      { first: 'Padme', last: 'Amidala', age: 'dead', passed: 27 },
+      { first: 'R2', last: 'D2', age: 66, passed: 'alive' },
+      { first: 'Shmi', last: 'Skywalker', age: 'dead', passed: 50 },
+      { first: 'Maz', last: 'Kanata', age: 1000, passed: 'alive' },
+      { first: 'Darth', last: 'Maul', age: 'dead', passed: 44 },
+      { first: 'Mace', last: 'Windu', age: 'dead', passed: 53 }
+    ];
+
+    // Array.prototype.filter()
+    // 1. filterを使ってスターウォーズのキャラクターのうち、現在60代のキャラクターだけを戻り値として返してみましょう。
+    // ヒント：関数と演算子を使います。
+    const sixty = characters.filter(character => (character.age >= 60 && character.age < 70));
+
+    console.table(sixty);
+
+    // Array.prototype.map()
+    // 2. スターウォーズ登場人物で上記にある全員の苗字と下の名前の配列を戻り値として返してみましょう。
+    // ヒント：関数と変数を使います。
+    const fullNames = characters.map(character => `${character.first} ${character.last}`);
+    console.log(fullNames);
+
+    // スプレッド演算子 オブジェクトの追加
+    // 3. スプレッド演算子を使って、ルークにジェダイの所属情報（オブジェクト）を追加しましょう。
+    const jedi1 = { first: 'Luke', last: 'Skywalker', age: 84, passed: 84 };
+
+    // オブジェクトのクローンをコンソールにオブジェクトとして戻り値を返しましょう
+    const jedi1Clone = {...jedi1};
+    console.log(jedi1Clone);// { first: 'Luke', last: 'Skywalker', age: 84, passed: 84 }
+
+    // プロパティを追加した新しいオブジェクトの生成をして、コンソールに戻り値を表示させましょう。
+    const addOccupation = {...jedi1, occupation: 'jedi'};
+    console.log(addOccupation);// {  first: 'Luke', last: 'Skywalker', age: 84, passed: 84, occupation: 'jedi' }
+
+
+  </script>
+</body>
+</html>
