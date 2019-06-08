@@ -83,10 +83,13 @@ for (v of arr) {// ループを繰り返す回数やカウンタ変数指定は�
 ```javascript
 const arr = [1, 2, 3];
 const [a, b, c] = arr;
+
 console.log(a); // 1
 console.log(b); // 2
 console.log(c); // 3
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/y7er96wp/1/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 カンマと空欄を用いることで、必要のない要素を`undefined`にし、必要な配列要素だけを呼び出すことができます。
 

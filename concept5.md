@@ -4,28 +4,29 @@
 ここではオブジェクトでスプレッド演算子を表記する例を見ていきましょう。
 
 ```javascript
-const arr = { a: 1, b: 2 };
+const obj = { a: 1, b: 2 };
 
 // オブジェクトのクローン
-const arrClone = {...arr};
-console.log(arrClone); // { a: 1, b: 2 }
+const objClone = {...obj};
+console.log(objClone); // { a: 1, b: 2 }
 
 // プロパティを追加した新しいオブジェクトの生成
-const addNewArr = {...arr, c: 3};
-console.log(addNewArr);// { a: 1, b: 2, c: 3 }
+const newObj = {...obj, c: 3};
+console.log(newObj); // { a: 1, b: 2, c: 3 }
 
 // オブジェクトのマージ
-const arrMerge = {...arr, ...{c: 3, d: 4}};
-console.log(arrMerge);// { a: 1, b: 2, c: 3, d: 4 }
+const objMerge = {...obj, ...{ c: 3, d: 4 }};
+console.log(objMerge); // { a: 1, b: 2, c: 3, d: 4 }
 
 // 元のオブジェクトに同名プロパティがある場合は置き換わる
-const foo = {...arr, b: 3};
-console.log(foo);// { a: 1, b: 3 }
-const yaa = {...arr, ...{a: 3, b: 4}};
-console.log(yaa);// { a: 3, b: 4 }
+const foo = {...obj, b: 3};
+console.log(foo); // { a: 1, b: 3 }
+
+const yaa = {...obj, ...{ a: 3, b: 4 }};
+console.log(yaa); // { a: 3, b: 4 }
 ```
 
-`Object.assign()`という書き方をするメソッドのものもありますが、スプレッド演算子で書き換えが可能になります。
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/nf2ehvxm/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 ## オブジェクトの分割代入
 
@@ -45,12 +46,14 @@ const obj = {
   yaa: 2,
   boo: 3
 };
-const { foo } = obj;
+const { foo, yaa, boo } = obj;
 
 console.log(foo); // 1
 console.log(yaa); // 2
 console.log(boo); // 3
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/7cbu8neo/2/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 上記の構文ではスプレッド演算子を用いていません。
 そのため、要素を取り出してから、個別にそれぞれの変数`a, b, c`に代入しています。
@@ -78,6 +81,8 @@ console.log(rest); // { yaa: 2, boo: 3 }
 
 `...rest`でスプレッド演算子を使用して、一括で残りの配列要素である「2, 3」を変数eやrestに一気に代入しています。
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/92bxp3Le/2/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 ## オブジェクトの更新/書き換え
 
 オブジェクトを初期化するオブジェクト初期化子で、スターウォーズの主人公の一人であるジェダイ、レイのプロフィール情報を初期化によって参照しました。
@@ -101,6 +106,8 @@ person.gender = "male";
 console.log(person.name, person.gender); // Luke male
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/j3cy1sxu/2/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 これで新しく、同じジェダイでもレイではなく、ルークのプロフィールに更新/書き換えされました。
 
 ## オブジェクトの削除
@@ -114,6 +121,8 @@ console.log(person.name, person.gender); // Luke male
 delete person.gender;
 console.log(person); // {name: "Luke", info: {occupation: "Jedi", affiliation: "Resistance"}
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/psr5ofzg/2/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 性別にあたる`gender`の値だけ削除することに成功しました。
 
@@ -130,10 +139,12 @@ for (let v in obj) {
 } // 1 2 3
 
 // forEach と Object.keysの組み合わせ
-Object.keys(obj).forEach((key) => {
+Object.keys(obj).forEach(key => {
   console.log(key + ':' + obj[key]);
 }); // num1:1 num2:2 num3:3
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/bj0fhk6u/2/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 for文は上記の配列でも確認しましたが、そのほか、`for ... in`、`forEach`と`Object.keys`の組み合わせについて簡単に復習すると、以下の内容になります。
 

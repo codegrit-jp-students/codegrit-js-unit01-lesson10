@@ -61,6 +61,8 @@ const arrMerge = [...arr, ...arrClone];
 console.log(arrMerge); // [1, 2, 1, 2]
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/w7s6d5n2/2/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 **_配列コンストラクタ_**で上記を実現しようとすると、`Array.prototype.concat()` という書き方になりますが、**_配列リテラル_**でスプレッド演算子を書くことで、はるかに簡潔に表記することができます。
 
 オブジェクトのスプレッド演算子表記については以下のオブジェクトの項目を参照してください。

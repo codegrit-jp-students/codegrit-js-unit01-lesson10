@@ -6,12 +6,14 @@
 2つとも戻り値は変更された後の配列の長さを返します。
 
 ```js
-let arr = ['1', '2', '3'];
+const arr = ['1', '2', '3'];
 
 console.log(arr.push('4')); // 4(追加された要素を合わせた配列の長さ)
 console.log(arr.unshift('0')); // 5(追加された要素を合わせた配列の長さ)
 console.log(arr) // ['0', '1', '2', '3', '4']
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/j1hkeytr/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 ### 配列の要素の削除
 
@@ -28,7 +30,9 @@ console.log(arr.shift()); // '1' (削除された要素)
 console.log(arr); // ["2"]
 ```
 
-**_delete演算子_**を使って配列要素を消すこともできます。削除したい配列要素のインデックス以下のように指定することで、指定された要素だけ消すことができます。
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/pamxow4c/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+**_delete演算子_**を使って配列要素を消すこともできます。削除したい配列要素のインデックス以下のように指定することで、指定された要素だけ消すことができます。(消された要素の場所にはundefinedが入ります。)
 戻り値が文字列の数字だけでは少しつまらないので、カフェのドリンクメニューを想定して、品切れになったラテ マキアートを**_delete演算子_**を使ってメニューから削除してみましょう。
 
 ```js
@@ -42,8 +46,10 @@ let drinks = [
 
 delete drinks[1];
 
-console.log(drinks); // ["cappccino", empty, "ice mocha", "chai tea latte", "white mocha"]
+console.log(drinks); // ["cappccino", undefined, "ice mocha", "chai tea latte", "white mocha"]
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/xo50cfra/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 この例ではインデックスで数えて1番目の配列要素のラテ・マキアートが削除されて配列要素のメニューから削除されたことが確認できました。
 
@@ -72,6 +78,8 @@ console.log(tellYourBoss); // 消された配列要素が返される['latte mac
 console.log(drinks); // 残った配列要素が返される["cappccino", "chai tea latte", "white mocha"]
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/utwch5L4/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 これで無事メニューの上から2番目に書いてあるラテ マキアートとアイス モカを消すことができ、店長にもどのメニューが品切れかを伝えることができました。
 
 ### 配列の置き換え
@@ -94,6 +102,8 @@ let drinks = [
 drinks.splice(1, 2, 'latte', 'ice coco');
 console.log(drinks);// ['cappccino','latte','ice coco','chai tea latte','white mocha']
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/djuz79f3/2/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 これで品切れのラテマキアートとアイスモカの代用メニューとしてラテとアイス ココアにメニューを書き換えることができました。
 メソッドのカッコ中にある例えば「`(1, 2, 'latte', 'ice coco')`」は、左から順にJavaScriptでは **第1引数** **第2引数** **第3引数** **第4引数** と呼びます。（読み仮名は「ひきすう」です。）
@@ -126,6 +136,8 @@ const result = hello.indexOf('こんにちは');
 console.log(result); // 1
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/t60zq748/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 返り値として、インデックスで数えて1番目にある「こんにちは」のインデックス番号が返ってきました。
 まず配列の中に「こんにちは」という文字列の要素が存在するかを確認した上での出力結果であることにも注目しましょう。
 
@@ -137,6 +149,8 @@ const result = hello.indexOf('Bonjour');
 
 console.log(result); // -1
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/dmvfc7eb/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 -1が返り値として返ってきました。
 これは配列内に存在しない要素の検索結果として返ってくる戻り値です。
@@ -151,6 +165,8 @@ const result = hello.indexOf('こんにちは');
 
 console.log(result); // 1
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/n4beLv1f/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 1というインデックスが返されましたが、検索した「こんにちは」という配列要素は2箇所あります。
 インデックス番号で言うと1と3にあるので、2つ戻り値が返されるのかと思いきや、はじめにある配列要素のインデックス番号しか戻り値として返ってきません。
@@ -168,11 +184,13 @@ console.log(result); // 1
 const arr = [10, 20, 30, 40];
 
 const arrDiv = arr.filter(value => {
-  return ((value % 20) === 0);
+  return (value % 20 === 0);
 });
 
 console.log(arrDiv); // [20, 40] -> 配列の要素が20で割り切れるものだけを配列要素で返す
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/am5v6gx2/2/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 ## mapとfilterメソッド
 
@@ -215,6 +233,8 @@ const arrDiv = arr.map(value => {
 console.log(arrDiv); // [10, 0, 10, 0] -< 配列要素「全て」に除算すると言う関数内容が実行された計算結果内容で新しい配列が返された
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/3krf6dgw/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 ```js
 /*
 * filter 例
@@ -229,6 +249,8 @@ const arrDiv = arr.filter(value => {
 
 console.log(arrDiv);// [10, 30] → 配列要素のうち、「除算できる要素のみ = trueを返す要素のみ戻り値を返す」と言う関数内容が実行され、新しい配列が返された
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/7eso31bx/1/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 **_map_**が**全ての配列要素**にコールバック関数で指示した条件内容が実行された計算結果を戻り値としているのに対し、**_filter_**ではコールバック関数で指示した**条件内容に当てはまる配列要素のみ**を文字通りフィルターして戻り値を返しています。
 

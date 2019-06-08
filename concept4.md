@@ -7,15 +7,15 @@
 
 ここでは簡単に配列を詳しく学んだので、配列との違いを比較してみます。
 
-```
-<配列>
+**配列**
+
 - 配列には値がある。インデックス番号でアクセスが可能。
 - 配列要素には順番がある。
 
-<オブジェクト>
+**オブジェクト**
 - オブジェクトにはプロパティ（オブジェクトに記載される内容）がある。文字列、もしくはシンボルを使って要素にアクセスが可能。
 - オブジェクトのプロパティには順序がない。
-```
+
 
 ちなみに、**連想配列**というものを専門書や様々なところで見かけることがあるかと思いますが、他のプログラムで言う連想配列とは、JavaScriptではオブジェクトと同じとみなされます。
 
@@ -36,6 +36,8 @@ const obj = {
 console.log(Object.values(obj)); // ['Rey', 'Jakku']
 ```
 
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/mc92pxLe/1/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 戻り値として、オブジェクトが所有しているプロパティの値からなる配列、つまりレイの名前と、レイの出身惑星、ジャクーが値として返ってきました。
 
 ## オブジェクトの初期化
@@ -46,8 +48,7 @@ console.log(Object.values(obj)); // ['Rey', 'Jakku']
 ジェダイであるレイのプロフィールを、オブジェクトの初期化子とコンストラクタ関数を使って紹介してみます。
 
 ```javascript
-
-// オブジェクト初期化子
+// オブジェクト初期化
 const obj = {}; // 空のオブジェクトを作成
 
 // personオブジェクト作成
@@ -59,11 +60,23 @@ const person =  {
     affiliation: "Resistance",
   },
 };
-console.log(person.name, person.gender, person.info.occupation, person.info.affiliation);// Rey female Jedi Resistance
+
+console.log(
+  person.name,
+  person.gender,
+  person.info.occupation,
+  person.info.affiliation
+); // Rey female Jedi Resistance
 ```
+
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/up8wf6ar/3/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 まず空のオブジェクトを作成した後に、`person`という新たなオブジェクトを作り、初期化を図っています。
 レッスン2でも出てきたプロパティにアクセスするためのドット「.」**メンバーアクセス演算子**を使って、レイのプロフィール情報にアクセスしています。
+
+## インスタンス化
+
+次の例のようにコンストラクタ関数を使って新たにオブジェクトを作成することを**インスタンス化**と呼びます。また生成されたオブジェクトのことを**インスタンス**と呼びます。`person`はPersonというコンストラクタ関数のインスタンスと言えます。
 
 ```js
 // コンストラクタ関数
@@ -88,4 +101,4 @@ const person = new Person(
 console.log(person.name); //　Rey
 ```
 
-このようにコンストラクタ関数を使って新たにオブジェクトを作成することを**インスタンス化**と呼びます。また生成されたオブジェクトのことを**インスタンス**と呼びます。`person`はPersonというコンストラクタ関数のインスタンスと言えます。
+<iframe width="100%" height="300" src="//jsfiddle.net/codegrit_hiro/jb27ec1a/2/embedded/js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
